@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 
-import { createStore, bindActionCreators } from 'redux';
+import { createStore } from 'redux';
 import { connect, Provider } from 'react-redux';
 import reducer from './reducers';
 import { increment, decrement, reset } from './action';
@@ -32,12 +32,10 @@ class Counter extends Component {
 
 const mapStateToProps = (state) => state;
 
-const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({
-    increment,
-    decrement,
-    reset
-  }, dispatch)
+const mapDispatchToProps = {
+  increment,
+  decrement,
+  reset
 }
 
 const ConnectContainer = connect(
