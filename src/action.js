@@ -1,13 +1,13 @@
 import VARIABLE from './constants';
 
-export const incrementAction = () => ({
+export const increment = () => ({
     type: VARIABLE.INCREMENT
 });
 
-export const decrementAction = () => ({
+export const decrement = () => ({
     type: VARIABLE.DECREMENT
 });
 
-export const resetAction = () => ({
+export const reset = () => ({
     type: VARIABLE.RESET
 });

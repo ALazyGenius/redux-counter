@@ -3,15 +3,16 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 
-import { createStore } from 'redux';
+import { createStore, bindActionCreators } from 'redux';
 import { connect, Provider } from 'react-redux';
 import reducer from './reducers';
-import { incrementAction, decrementAction, resetAction } from './action';
+import { increment, decrement, reset } from './action';
 
 const store = createStore(reducer);
 
 class Counter extends Component {
     render() {
+      console.log(this.props);
       const { count, increment, decrement, reset } = this.props;
         return(
           <div className="App">
@@ -32,11 +33,11 @@ class Counter extends Component {
 const mapStateToProps = (state) => state;
 
 const mapDispatchToProps = (dispatch) => {
-  return {
-    increment() { dispatch(incrementAction()) },
-    decrement() { dispatch(decrementAction()) },
-    reset() { dispatch(resetAction()) },
-  }
+  return bindActionCreators({
+    increment,
+    decrement,
+    reset
+  }, dispatch)
 }
 
 const ConnectContainer = connect(
