@@ -38,7 +38,7 @@ const mapDispatchToProps = {
   reset
 }
 
-const ConnectContainer = connect(
+const CounterContainer = connect(
   mapStateToProps, 
   mapDispatchToProps
 )(Counter);
@@ -46,7 +46,7 @@ const ConnectContainer = connect(
 ReactDOM.render(
   <Provider store={store}>
     <React.StrictMode>
-      <ConnectContainer />
+      <CounterContainer />
     </React.StrictMode>
   </Provider>,
   document.getElementById('root')
